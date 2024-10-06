@@ -56,6 +56,23 @@ body {
     border: 1px solid black !important;
 }
 
+/* Profile */
+#profile-container {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    height: 200px; /* Set the height of the container */
+    width: 200px; /* Set the width of the container */
+}
+
+#default_picture {
+    background: url('/media/default_picture.png') no-repeat center center;
+    background-size: cover; /* Cover the entire area */
+    border-radius: 50%; /* Makes it a circle */
+    height: 100%; /* Take full height of the container */
+    width: 100%; /* Take full width of the container */
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
