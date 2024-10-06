@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="bg-success text-white">
+                        <th colspan="2">Your Academic Performance</th>
+                    </tr>
+                    <tr class="bg-primary text-white">
+                        <th>Subject</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-light">
+                        <td>Mathematics</td>
+                        <td>85</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>Science</td>
+                        <td>90</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td>History</td>
+                        <td>78</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>English</td>
+                        <td>88</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td>Art</td>
+                        <td>95</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>Geography</td>
+                        <td>80</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td>Physics</td>
+                        <td>92</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>Chemistry</td>
+                        <td>89</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td>Physical Education</td>
+                        <td>94</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>Music</td>
+                        <td>87</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

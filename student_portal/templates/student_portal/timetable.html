@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="bg-success text-white">
+                        <th colspan="6">Weekly Timetable</th>
+                    </tr>
+                    <tr class="bg-primary text-white">
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-light">
+                        <td>9:00 - 10:00</td>
+                        <td>Mathematics</td>
+                        <td>Science</td>
+                        <td>History</td>
+                        <td>English</td>
+                        <td>Art</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>10:15 - 11:15</td>
+                        <td>Geography</td>
+                        <td>Physical Education</td>
+                        <td>Mathematics</td>
+                        <td>Music</td>
+                        <td>Science</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td>11:30 - 12:30</td>
+                        <td>English</td>
+                        <td>History</td>
+                        <td>Geography</td>
+                        <td>Physics</td>
+                        <td>Chemistry</td>
+                    </tr>
+                    <tr class="bg-secondary text-white">
+                        <td>12:45 - 1:45</td>
+                        <td>Art</td>
+                        <td>Mathematics</td>
+                        <td>Physical Education</td>
+                        <td>Science</td>
+                        <td>History</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td>2:00 - 3:00</td>
+                        <td>Music</td>
+                        <td>Chemistry</td>
+                        <td>Physics</td>
+                        <td>Geography</td>
+                        <td>English</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
