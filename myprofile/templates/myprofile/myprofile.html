@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">My Profile</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    Profile Information
+                </div>
+                <div class="card-body text-center">
+                    {% if profile.profile_picture %}
+                        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
+                    {% else %}
+                        <img src="{% static 'default_profile_picture.png' %}" alt="Default Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
+                    {% endif %}
+                    <p><strong>Username:</strong> {{ profile.user.username }}</p>
+                    <p><strong>Email:</strong> {{ profile.user.email }}</p>
+                    <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
+                    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

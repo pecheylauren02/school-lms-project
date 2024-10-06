@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'student_portal',
+    'myprofile',
 ]
 
 MIDDLEWARE = [
