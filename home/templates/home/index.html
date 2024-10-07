@@ -2,26 +2,54 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">School LMS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Timetable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Grades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 logo-font text-black">
-                    <!-- The new collections are here -->
-                     Welcome to the School LMS
-                </h1>
-                <!-- This should be replaced by the school lms button -->
-                <div class="my-5">
-                    <h4>
-                        <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Check Your Timetable <!-- Shop Now Button --></a>
-                    </h4>
+    <div class="container h-100 mt-5">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-10 col-md-8 text-center border border-primary rounded shadow-lg bg-light bg-opacity-75">
+                <div class="p-4">
+                    <h1 class="display-4 text-primary">
+                        Welcome to the School LMS
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Access your profile, view your timetable, and manage your grades all in one place.
+                    </p>
+                    <div class="my-4">
+                        <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg rounded-pill px-4 py-3 text-uppercase">I am a Student/Parent</a>
+                        <a href="{% url 'account_login' %}" class="btn btn-secondary btn-lg rounded-pill px-4 py-3 text-uppercase">I am a Staff Member</a>
+                    </div>
+                    <!-- Add logic to show/hide buttons after login -->
+                    {% if user.is_authenticated %}
+                        <div class="my-4">
+                            <a href="#" class="btn btn-success btn-lg rounded-pill px-4 py-3 text-uppercase">View my Timetable</a>
+                            <a href="#" class="btn btn-info btn-lg rounded-pill px-4 py-3 text-uppercase">View my Grades</a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
