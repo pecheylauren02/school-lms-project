@@ -10,7 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+from urllib.parse import urlparse
 from pathlib import Path
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +30,9 @@ SECRET_KEY = 'django-insecure-=r1_p^b8s(r%ajh9$-du8grtehp$1-h^20$^w2^4vn)#z81z5x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-pecheylaure-schoollmspr-y1igy0gfr6e.ws-us116.gitpod.io']
+ALLOWED_HOSTS = ['8000-pecheylaure-schoollmspr-t0tgp2c2fqr.ws-us116.gitpod.io']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-pecheylaure-schoollmspr-y1igy0gfr6e.ws-us116.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-pecheylaure-schoollmspr-t0tgp2c2fqr.ws-us116.gitpod.io']
 
 # Application definition
 
@@ -105,13 +110,25 @@ WSGI_APPLICATION = 'school_lms.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
