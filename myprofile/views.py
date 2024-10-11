@@ -1,16 +1,21 @@
-from django.shortcuts import render, redirect
-from .models import StudentProfile
-from django.contrib.auth.decorators import login_required
+from django.db import models
+from django.contrib.auth.models import User
 
-@login_required
-def profile_view(request):
-    try:
-        profile = StudentProfile.objects.get(user=request.user)
-    except StudentProfile.DoesNotExist:
-        # Create a new profile if it doesn't exist
-        profile = StudentProfile.objects.create(user=request.user)
+# Student profile model
+class StudentProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    date_of_birth = models.DateField(null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
+    bio = models.TextField(blank=True)
 
-    context = {
-        'profile': profile,
-    }
-    return render(request, 'myprofile/myprofile.html', context)
+    def __str__(self):
+        return self.user.username
+
+# Uploaded file model (for API Injection Attack demonstration)
+class UploadedFile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='uploaded_files/')
+    upload_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"File uploaded by {self.user.username} on {self.upload_time}"

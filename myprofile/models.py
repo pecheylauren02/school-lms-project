@@ -1,11 +1,31 @@
-from django.db import models
-from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from .views import StudentProfile, UploadedFile
+from django.contrib.auth.decorators import login_required
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
 
-class StudentProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    date_of_birth = models.DateField(null=True, blank=True)
-    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
-    bio = models.TextField(blank=True)
+# Profile view
+@login_required
+def profile_view(request):
+    try:
+        profile = StudentProfile.objects.get(user=request.user)
+    except StudentProfile.DoesNotExist:
+        # Create a new profile if it doesn't exist
+        profile = StudentProfile.objects.create(user=request.user)
 
-    def __str__(self):
-        return self.user.username
+    context = {
+        'profile': profile,
+    }
+    return render(request, 'myprofile/myprofile.html', context)
+
+# File upload view (for API Injection Attack demonstration)
+@login_required
+def upload_file(request):
+    if request.method == 'POST' and request.FILES.get('file'):
+        uploaded_file = request.FILES['file']
+        fs = FileSystemStorage()
+        filename = fs.save(uploaded_file.name, uploaded_file)
+        # Save the uploaded file information in the UploadedFile model
+        UploadedFile.objects.create(user=request.user, file=filename)
+        return HttpResponse(f"File uploaded: {filename}")
+    return HttpResponse("No file uploaded.")
