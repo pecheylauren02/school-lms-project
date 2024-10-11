@@ -99,6 +99,8 @@ body {
     }
 }
 
+/* Navbar styling */
+
 #lms-welcome-container {
     padding: 20px;
 }
@@ -115,4 +117,70 @@ body {
 
 #lms-welcome-motto {
     color: #cccccc; /* Light gray color for the motto */
+}
+
+.nav-link {
+    position: relative; /* Position relative for pseudo-element positioning */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transition for color and transform */
+}
+
+.nav-link::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning for the pseudo-element */
+    width: 100%; /* Full width */
+    height: 2px; /* Thickness of the underline */
+    bottom: 0; /* Position at the bottom of the link */
+    left: 0; /* Align to the left */
+    background: #007bff; /* Color of the underline */
+    transform: scaleX(0); /* Initially scale to 0 for animation */
+    transition: transform 0.3s ease; /* Transition for scale */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Change text color */
+    transform: translateY(-2px); /* Slightly move the link upwards */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Scale the underline to full width on hover */
+}
+
+/* Footer styling */
+
+.footer-custom {
+    background-color: #1a1a1a; /* Dark background for the footer */
+    color: #ffffff; /* Default text color */
+}
+
+.footer-heading {
+    color: #ffffff; /* White color for headings */
+    font-weight: bold; /* Bold headings */
+}
+
+.footer-text {
+    color: #b0b0b0; /* Light gray for paragraph text */
+}
+
+.footer-links a {
+    transition: color 0.3s; /* Smooth color transition on hover */
+    color: #b0b0b0; /* Default link color */
+}
+
+.footer-links a:hover {
+    color: #007bff; /* Change link color on hover */
+}
+
+.footer-social {
+    background-color: transparent; /* Transparent background for social buttons */
+    border: none; /* No border */
+    color: #ffffff; /* White color for icons */
+    font-size: 1.5rem; /* Increased icon size */
+}
+
+.footer-social:hover {
+    color: #007bff; /* Change icon color on hover */
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for the bottom section */
 }

@@ -39,31 +39,17 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-      <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+      <div id="topnav" class="row bg-light pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-left">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
             <h2 class="logo-font text-black my-0"><strong>School</strong> LMS</h2>
         </a>
         </div>
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-lg-right">
-          <div class="alert alert-warning" role="alert">
+          <div class="alert alert-warning border-light" role="alert">
             Upcoming: Parent-Teacher Conferences on Oct 20!
           </div>
         </div>        
-        <!-- <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="">
-            <div class="input-group w-100">
-                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                <div class="input-group-append">
-                    <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                        <span class="icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </form>
-        </div> -->
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
           <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <!-- Login Account dropdowns -->
@@ -114,38 +100,39 @@
     {% block postloadjs %}
     {% endblock %}
 
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="footer-custom text-center text-lg-start">
       <div class="container p-4">
-        <div class="row">
-          <div class="col-lg-4 col-md-12 mb-4">
-            <h5 class="text-uppercase">About Us</h5>
-            <p>
-              We are dedicated to providing quality education and resources for students and parents. Our mission is to empower learners to reach their full potential.
-            </p>
+          <div class="row">
+              <div class="col-lg-4 col-md-12 mb-4">
+                  <h5 class="footer-heading">About Us</h5>
+                  <p class="footer-text">
+                      We are dedicated to providing quality education and resources for students and parents. Our mission is to empower learners to reach their full potential.
+                  </p>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                  <h5 class="footer-heading">Quick Links</h5>
+                  <ul class="list-unstyled footer-links">
+                      <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
+                      <li><a href="#" class="footer-link">Contact Us</a></li>
+                      <li><a href="#" class="footer-link">About Us</a></li>
+                      <li><a href="#" class="footer-link">Resources</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                  <h5 class="footer-heading">Follow Us</h5>
+                  <div class="d-flex justify-content-center">
+                      <a href="https://facebook.com" target="_blank" class="btn btn-social-icon mx-1 footer-social"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://twitter.com" target="_blank" class="btn btn-social-icon mx-1 footer-social"><i class="fab fa-twitter"></i></a>
+                      <a href="https://instagram.com" target="_blank" class="btn btn-social-icon mx-1 footer-social"><i class="fab fa-instagram"></i></a>
+                      <a href="https://linkedin.com" target="_blank" class="btn btn-social-icon mx-1 footer-social"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <h5 class="text-uppercase">Quick Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="{% url 'home' %}" class="text-dark">Home</a></li>
-              <li><a href="#" class="text-dark">Contact Us</a></li>
-              <li><a href="#" class="text-dark">About Us</a></li>
-              <li><a href="#" class="text-dark">Resources</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <h5 class="text-uppercase">Follow Us</h5>
-            <a href="https://facebook.com" target="_blank" class="btn btn-social-icon btn-facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank" class="btn btn-social-icon btn-twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank" class="btn btn-social-icon btn-instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="btn btn-social-icon btn-linkedin"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
       </div>
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1);">
-        © 2024 School LMS. All rights reserved.
+      <div class="text-center p-3 footer-bottom">
+          © 2024 School LMS. All rights reserved.
       </div>
-    </footer>
+  </footer>
     
-
   </body>
 </html>
