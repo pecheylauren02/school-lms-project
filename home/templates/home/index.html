@@ -29,7 +29,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100 mt-5">
+    <!-- <div class="container h-100 mt-5">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-10 col-md-8 text-center border border-primary rounded shadow-lg bg-light bg-opacity-75">
                 <div class="p-4">
@@ -43,7 +43,7 @@
                         <a href="{% url 'account_login' %}" class="btn btn-primary btn-lg rounded-pill px-4 py-3 text-uppercase">I am a Student/Parent</a>
                         <a href="{% url 'account_login' %}" class="btn btn-secondary btn-lg rounded-pill px-4 py-3 text-uppercase">I am a Staff Member</a>
                     </div>
-                    <!-- Add logic to show/hide buttons after login -->
+                    Add logic to show/hide buttons after login 
                     {% if user.is_authenticated %}
                         <div class="my-4">
                             <a href="#" class="btn btn-success btn-lg rounded-pill px-4 py-3 text-uppercase">View my Timetable</a>
@@ -53,5 +53,21 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <div id="lms-welcome-container" class="container h-100 mt-5">
+        <div class="row justify-content-center align-items-center h-100">
+            <div id="lms-welcome-box" class="col-10 col-md-8 text-center border border-light rounded shadow-lg bg-dark text-white">
+                <div class="p-4">
+                    <h1 id="lms-welcome-title" class="display-4 text-light">
+                        Welcome to the School LMS
+                    </h1>
+                    <p id="lms-welcome-motto" class="lead mb-4">
+                        "Your Education, Our Commitment" <!-- School Motto -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
 {% endblock %}

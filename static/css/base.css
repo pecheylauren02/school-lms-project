@@ -6,7 +6,9 @@ body {
     background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    background-color: #212529; /* Dark background for the entire page */
+    color: #ffffff; /* Default text color */
+    /* color: #555; */
     font-family: 'Lato';
 }
 
@@ -95,4 +97,22 @@ body {
     .header-container {
         padding-top: 164px;
     }
+}
+
+#lms-welcome-container {
+    padding: 20px;
+}
+
+#lms-welcome-box {
+    background-color: rgba(52, 58, 64, 0.5) !important; /* Dark background with 0.5 opacity */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+}
+
+#lms-welcome-title {
+    color: #f8f9fa !important; /* Light text color for the title */
+}
+
+#lms-welcome-motto {
+    color: #cccccc; /* Light gray color for the motto */
 }
