@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-=r1_p^b8s(r%ajh9$-du8grtehp$1-h^20$^w2^4vn)#z81z5x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-pecheylaure-schoollmspr-t0tgp2c2fqr.ws-us116.gitpod.io', 'https://school-lms-project-06a6aa171a7b.herokuapp.com']
+ALLOWED_HOSTS = ['8000-pecheylaure-schoollmspr-t0tgp2c2fqr.ws-us116.gitpod.io', 'school-lms-project-06a6aa171a7b.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-pecheylaure-schoollmspr-t0tgp2c2fqr.ws-us116.gitpod.io', 'https://school-lms-project-06a6aa171a7b.herokuapp.com']
 
