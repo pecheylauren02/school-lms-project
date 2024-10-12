@@ -23,7 +23,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('student/', include('student_portal.urls')),
-    path('profile/', include('myprofile.urls')),
+    path('myprofile/', include('myprofile.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # For handling media files (profile pictures, uploaded files, etc.)

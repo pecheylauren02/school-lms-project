@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-6 mb-5" style="margin-top: 150px;">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow">
+                <div class="card-body text-dark">
+                    <h2 class="mb-4 text-center">My Profile</h2>
+                    <p><strong>Name:</strong> {{ profile.user.first_name }}</p>
+                    <p><strong>Student Number:</strong> {{ profile.student_number }}</p>
+                    <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
+                    <p><strong>Email:</strong> {{ profile.user.email }}</p>
+                    <p><strong>Address:</strong> {{ profile.address }}</p>
+                    {% if profile.profile_picture %}
+                    <img src="{{ profile.profile_picture.url }}" class="img-thumbnail mt-2" alt="Profile Picture" width="150">
+                    {% endif %}
+                    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+                    <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
+
+                    <!-- Option to go back to update profile -->
+                    <div class="d-grid mt-3">
+                        <a href="{% url 'myprofile' %}" class="btn btn-secondary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
