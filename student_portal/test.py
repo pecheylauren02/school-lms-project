@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Grade, Timetable
 import datetime
 
+
 class GradeModelTest(TestCase):
     def setUp(self):
         # Create a user for testing
@@ -32,14 +33,14 @@ class TimetableModelTest(TestCase):
             user=self.user,
             day='Monday',
             subject='Biology',
-            time=datetime.time(9, 0)  # Set time as a datetime.time object
+            time=datetime.time(9, 0)
         )
 
     def test_timetable_creation(self):
         self.assertEqual(self.timetable_entry.user.username, 'testuser')
         self.assertEqual(self.timetable_entry.day, 'Monday')
         self.assertEqual(self.timetable_entry.subject, 'Biology')
-        self.assertEqual(self.timetable_entry.time.strftime('%H:%M:%S'), '09:00:00')  # This should now work
+        self.assertEqual(self.timetable_entry.time.strftime('%H:%M:%S'), '09:00:00')
 
     def test_str_method(self):
         self.assertEqual(str(self.timetable_entry), 'Monday: Biology at 09:00:00')
