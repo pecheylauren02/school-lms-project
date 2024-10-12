@@ -25,6 +25,16 @@
                         {% element fields form=form unlabeled=True %}
                         {% endelement %}
                         {{ redirect_field }}
+
+                        <!-- Consent Checkbox -->
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" id="consentCheckbox" required>
+                            <label class="form-check-label" for="consentCheckbox">
+                                {% blocktranslate %}
+                                By checking this box, you consent to the collection, processing, and storage of your data in accordance with our privacy policy.
+                                {% endblocktranslate %}
+                            </label>
+                        </div>
                     {% endslot %}
                     {% slot actions %}
                         <div class="text-center">
