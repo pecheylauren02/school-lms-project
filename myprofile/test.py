@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import StudentProfile, UploadedFile
 
+
 class StudentProfileModelTest(TestCase):
     def setUp(self):
         # Create a user for testing
@@ -24,6 +25,7 @@ class StudentProfileModelTest(TestCase):
 
     def test_str_method(self):
         self.assertEqual(str(self.student_profile), 'testuser')
+
 
 class UploadedFileModelTest(TestCase):
     def setUp(self):

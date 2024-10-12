@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 
+
 @login_required
 def profile_view(request):
     try:
@@ -37,6 +38,7 @@ def profile_view(request):
     }
     return render(request, 'myprofile/myprofile.html', context)
 
+
 @login_required
 def display_profile(request):
     profile = StudentProfile.objects.get(user=request.user)
@@ -45,6 +47,7 @@ def display_profile(request):
         'profile': profile,
     }
     return render(request, 'myprofile/display_profile.html', context)
+
 
 # File upload view (for API Injection Attack demonstration)
 @login_required
@@ -57,6 +60,7 @@ def upload_file(request):
         UploadedFile.objects.create(user=request.user, file=filename)
         return HttpResponse(f"File uploaded: {filename}")
     return HttpResponse("No file uploaded.")
+
 
 # Admin-only delete view
 @login_required
