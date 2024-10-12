@@ -1,0 +1,186 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    background-color: #212529; /* Dark background for the entire page */
+    color: #ffffff; /* Default text color */
+    /* color: #555; */
+    font-family: 'Lato';
+}
+
+/* from Bulma - this class centers all icons */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Profile */
+#profile-container {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    height: 200px; /* Set the height of the container */
+    width: 200px; /* Set the width of the container */
+}
+
+#default_picture {
+    background: url('/media/default_picture.png') no-repeat center center;
+    background-size: cover; /* Cover the entire area */
+    border-radius: 50%; /* Makes it a circle */
+    height: 100%; /* Take full height of the container */
+    width: 100%; /* Take full width of the container */
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* Navbar styling */
+
+#lms-welcome-container {
+    padding: 20px;
+}
+
+#lms-welcome-box {
+    background-color: rgba(52, 58, 64, 0.5) !important; /* Dark background with 0.5 opacity */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+}
+
+#lms-welcome-title {
+    color: #f8f9fa !important; /* Light text color for the title */
+}
+
+#lms-welcome-motto {
+    color: #cccccc; /* Light gray color for the motto */
+}
+
+.nav-link {
+    position: relative; /* Position relative for pseudo-element positioning */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transition for color and transform */
+}
+
+.nav-link::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning for the pseudo-element */
+    width: 100%; /* Full width */
+    height: 2px; /* Thickness of the underline */
+    bottom: 0; /* Position at the bottom of the link */
+    left: 0; /* Align to the left */
+    background: #007bff; /* Color of the underline */
+    transform: scaleX(0); /* Initially scale to 0 for animation */
+    transition: transform 0.3s ease; /* Transition for scale */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Change text color */
+    transform: translateY(-2px); /* Slightly move the link upwards */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Scale the underline to full width on hover */
+}
+
+/* Footer styling */
+
+.footer-custom {
+    background-color: #1a1a1a; /* Dark background for the footer */
+    color: #ffffff; /* Default text color */
+}
+
+.footer-heading {
+    color: #ffffff; /* White color for headings */
+    font-weight: bold; /* Bold headings */
+}
+
+.footer-text {
+    color: #b0b0b0; /* Light gray for paragraph text */
+}
+
+.footer-links a {
+    transition: color 0.3s; /* Smooth color transition on hover */
+    color: #b0b0b0; /* Default link color */
+}
+
+.footer-links a:hover {
+    color: #007bff; /* Change link color on hover */
+}
+
+.footer-social {
+    background-color: transparent; /* Transparent background for social buttons */
+    border: none; /* No border */
+    color: #ffffff; /* White color for icons */
+    font-size: 1.5rem; /* Increased icon size */
+}
+
+.footer-social:hover {
+    color: #007bff; /* Change icon color on hover */
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for the bottom section */
+}
