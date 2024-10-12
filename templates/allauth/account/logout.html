@@ -8,7 +8,7 @@
 <div class="container vh-100 d-flex justify-content-center align-items-center">
     <div class="row w-100 justify-content-center">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <div class="card p-4 shadow-lg">
+            <div class="card p-4 shadow-lg text-dark">
                 <h1 class="text-center mb-4">{% trans "Sign Out" %}</h1>
                 <p class="text-center">{% trans 'Are you sure you want to sign out?' %}</p>
                 {% url 'account_logout' as action_url %}
@@ -16,7 +16,8 @@
                     {% csrf_token %}
                     {{ redirect_field }}
                     <div class="text-center">
-                        <button type="submit" class="btn btn-danger btn-block">{% trans 'Sign Out' %}</button>
+                        <button type="submit" class="btn btn-danger btn-block mb-2">{% trans 'Sign Out' %}</button>
+                        <a href="{% url 'home' %}" class="btn btn-secondary btn-block">{% trans 'Cancel' %}</a>
                     </div>
                 </form>
             </div>

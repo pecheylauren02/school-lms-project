@@ -19,15 +19,17 @@ users = {
     'normaluser': {'password': make_password('user123'), 'is_admin': False}
 }
 
+
 def check_admin(username):
     return users.get(username, {}).get('is_admin', False)
+
 
 def login():
     username = input("Enter username: ")
     password = getpass("Enter password: ")
-    
+
     user = users.get(username)
-    
+
     if user and check_password(password, user['password']):
         print(f"Welcome {username}!")
         return username
@@ -35,13 +37,16 @@ def login():
         print("Invalid credentials.")
         return None
 
+
 def run_secure_api():
     print("Running Secure API...")
     os.system('python secure_api.py')
 
+
 def run_insecure_api():
     print("Running Insecure API...")
     os.system('python insecure_api.py')
+
 
 def main():
     print("1. Run Secure API\n2. Run Insecure API\n3. Exit")
@@ -60,6 +65,7 @@ def main():
         exit()
     else:
         print("Invalid option. Exiting...")
+
 
 if __name__ == "__main__":
     main()
