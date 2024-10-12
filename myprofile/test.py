@@ -34,12 +34,12 @@ class UploadedFileModelTest(TestCase):
         # Create an UploadedFile instance (make sure you have a test file)
         self.uploaded_file = UploadedFile.objects.create(
             user=self.user,
-            file='path/to/test/file.txt'  # Change this to a valid test file path in your setup
+            file='path/to/test/file.txt'
         )
 
     def test_uploaded_file_creation(self):
         self.assertEqual(self.uploaded_file.user.username, 'testuser')
-        self.assertTrue(hasattr(self.uploaded_file.file, 'url'))  # Check if the file has a URL attribute
+        self.assertTrue(hasattr(self.uploaded_file.file, 'url'))
 
     def test_str_method(self):
         self.assertIn('File uploaded by testuser', str(self.uploaded_file))
