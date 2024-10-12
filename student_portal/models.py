@@ -9,6 +9,7 @@ class Grade(models.Model):
     def __str__(self):
         return f"{self.subject}: {self.score}"
 
+
 class Timetable(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     day = models.CharField(max_length=10)
