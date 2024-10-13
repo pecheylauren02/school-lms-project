@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background: url('https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     background-color: #212529; /* Dark background for the entire page */
