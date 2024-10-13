@@ -43,15 +43,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'cloudinary',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'home',
     'student_portal',
     'myprofile',
-    'storages',
+    # 'storages',
 ]
 
 MIDDLEWARE = [
@@ -162,40 +164,47 @@ USE_L10N = True
 
 USE_TZ = True
 
+CLOUDINARY_API_KEY=os.environ.get('CLOUDINARY_API_KEY')
+CLOUDINARY_SECRET_API_KEY=os.environ.get('CLOUDINARY_SECRET_API_KEY')
+CLOUDINARY_NAME=os.environ.get('CLOUDINARY_NAME')
+CLOUDINARY_URL=f'cloudinary://{CLOUDINARY_API_KEY}:{CLOUDINARY_SECRET_API_KEY}@{CLOUDINARY_NAME}'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if 'USE_AWS' in os.environ:
-    # Cache control
-    AWS_S3_OBJECT_PARAMETERS = {
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'CacheControl': 'max-age=94608000',
-    }
+# if 'USE_AWS' in os.environ:
+#     # Cache control
+#     AWS_S3_OBJECT_PARAMETERS = {
+#         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+#         'CacheControl': 'max-age=94608000',
+#     }
 
-    # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'school-lms-project'
-    AWS_S3_REGION_NAME = 'us-east-1'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+#     # Bucket Config
+#     AWS_STORAGE_BUCKET_NAME = 'school-lms-project'
+#     AWS_S3_REGION_NAME = 'us-east-1'
+#     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+#     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-    # Static and media files
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = 'media'
+#     # Static and media files
+#     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+#     STATICFILES_LOCATION = 'static'
+#     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+#     MEDIAFILES_LOCATION = 'media'
 
-    # Override static and media URLs in production
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+#     # Override static and media URLs in production
+#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
