@@ -20,8 +20,6 @@ The main purpose of the project was to create a simple School LMS website, which
 
 ### Wireframes
 
-#### Wireframes (see below)
-
 Wireframes were developed using [Figma](https://www.figma.com/), including making all colour, typography and layout decisions at this stage. This was done to ensure that the focus would be on building the site, rather than designing it.
 
 ### Models
@@ -42,6 +40,8 @@ This section shows details of all features on the site including details of thei
 
 ![Mock-up](media/home_page.png)
 
+![Mock-up](media/footer.png)
+
 - All pages have title & description meta tags to improve their SEO performance. 
 
 ### Authentication Pages
@@ -52,9 +52,13 @@ This section shows details of all features on the site including details of thei
 - AllAuth provides a series of templates for all the actions required to implement authentication. The site uses these with its own bespoke styling to make them feel part of the site.
 - All the form have been styled using the [widget-tweak](https://pypi.org/project/django-widget-tweaks/) package to add styling classes to inputs, labels and error messages from within the form templates
 
+<details><summary>Login and Registration</summary>
 <img src="media/login.png">
 <img src="media/logout.png">
 <img src="media/signup.png">
+<img src="media/email.png">
+<img src="media/verify.png">
+</details>
 
 **Value to User**
 
@@ -64,11 +68,15 @@ A strong authentication system is vital to a school LMS, allowing users to log i
 
 ### Grades Page
 
-![Mock-up](media/grades.png)
+![Mock-up](media/grade.png)
+
+The user can view their grades when they click on the "My Grades" button.
 
 ### Timetable Page
 
 ![Mock-up](media/timetable.png)
+
+The user can view their timetable when they click on the "My Timetable" button.
 
 ### Profile Page
 
