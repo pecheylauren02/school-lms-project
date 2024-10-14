@@ -1,6 +1,4 @@
-# student_portal/views.py
-
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Grade, Timetable
 
@@ -14,4 +12,5 @@ def grades_view(request):
 @login_required
 def timetable_view(request):
     timetable = Timetable.objects.filter(user=request.user)
-    return render(request, 'student_portal/timetable.html', {'timetable': timetable})
+    return render(request, 'student_portal/timetable.html',
+                  {'timetable': timetable})

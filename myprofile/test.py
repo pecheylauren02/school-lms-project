@@ -5,9 +5,8 @@ from .models import StudentProfile, UploadedFile
 
 class StudentProfileModelTest(TestCase):
     def setUp(self):
-        # Create a user for testing
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        # Create a StudentProfile instance
+        self.user = User.objects.create_user(username='testuser',
+                                             password='testpass')
         self.student_profile = StudentProfile.objects.create(
             user=self.user,
             date_of_birth='2000-01-01',
@@ -21,7 +20,8 @@ class StudentProfileModelTest(TestCase):
         self.assertEqual(self.student_profile.date_of_birth, '2000-01-01')
         self.assertEqual(self.student_profile.student_number, 'S123456')
         self.assertEqual(self.student_profile.phone_number, '1234567890')
-        self.assertEqual(self.student_profile.address, '123 Test St, Test City')
+        self.assertEqual(self.student_profile.address,
+                         '123 Test St, Test City')
 
     def test_str_method(self):
         self.assertEqual(str(self.student_profile), 'testuser')
@@ -29,9 +29,8 @@ class StudentProfileModelTest(TestCase):
 
 class UploadedFileModelTest(TestCase):
     def setUp(self):
-        # Create a user for testing
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        # Create an UploadedFile instance (make sure you have a test file)
+        self.user = User.objects.create_user(username='testuser',
+                                             password='testpass')
         self.uploaded_file = UploadedFile.objects.create(
             user=self.user,
             file='path/to/test/file.txt'

@@ -31,7 +31,7 @@ def profile_view(request):
         profile.save()
 
         # Redirect to the profile display page
-        return redirect('display_profile')  # Change this to the actual URL name for displaying the profile
+        return redirect('display_profile')
 
     context = {
         'profile': profile,
@@ -42,7 +42,7 @@ def profile_view(request):
 @login_required
 def display_profile(request):
     profile = StudentProfile.objects.get(user=request.user)
-    
+
     context = {
         'profile': profile,
     }
@@ -56,19 +56,6 @@ def upload_file(request):
         uploaded_file = request.FILES['file']
         fs = FileSystemStorage()
         filename = fs.save(uploaded_file.name, uploaded_file)
-        # Save the uploaded file information in the UploadedFile model
         UploadedFile.objects.create(user=request.user, file=filename)
         return HttpResponse(f"File uploaded: {filename}")
     return HttpResponse("No file uploaded.")
-
-
-# Admin-only delete view
-@login_required
-def delete_profile(request, user_id):
-    if request.user.is_staff:  # Check if the user is an admin
-        user = get_object_or_404(User, id=user_id)
-        user.delete()
-        messages.success(request, 'Profile deleted successfully!')
-        return redirect('home')  # Redirect to home or another page after deletion
-    else:
-        return HttpResponse("You do not have permission to delete this profile.", status=403)

