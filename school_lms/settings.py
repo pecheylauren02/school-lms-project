@@ -11,14 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from urllib.parse import urlparse
-from pathlib import Path
-from os import getenv
 from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -53,7 +49,6 @@ INSTALLED_APPS = [
     'home',
     'student_portal',
     'myprofile',
-    # 'storages',
 ]
 
 MIDDLEWARE = [
@@ -111,13 +106,6 @@ WSGI_APPLICATION = 'school_lms.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
@@ -178,31 +166,6 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# if 'USE_AWS' in os.environ:
-#     # Cache control
-#     AWS_S3_OBJECT_PARAMETERS = {
-#         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-#         'CacheControl': 'max-age=94608000',
-#     }
-
-#     # Bucket Config
-#     AWS_STORAGE_BUCKET_NAME = 'school-lms-project'
-#     AWS_S3_REGION_NAME = 'us-east-1'
-#     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-#     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-#     # Static and media files
-#     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-#     STATICFILES_LOCATION = 'static'
-#     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-#     MEDIAFILES_LOCATION = 'media'
-
-#     # Override static and media URLs in production
-#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 if 'DEVELOPMENT' in os.environ:
@@ -216,5 +179,3 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
